@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Jubao</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+
+
+    <string name="author">韩寒（1982年9月23日－），出生于中国大陆上海金山。中国大陆作家，职业拉力赛及场地赛车手，《独唱团》杂志（现已停刊）、《一个》app主编，并涉足音乐、电影创作。电影代表作：《后会无期》。2010年，韩寒被《时代周刊》评选为100名影响世界人物之一。</string>
+
+    <string name="essay">史上最全WebView使用，附送Html5Activity一份
+如果本文帮助到你，本人不胜荣幸，如果浪费了你的时间，本人深感抱歉。
+希望用最简单的大白话来帮助那些像我一样的人。如果有什么错误，请一定指出，以免误导大家、也误导我。
+本文来自：http://www.jianshu.com/users/320f9e8f7fc9/latest_articles
+感谢您的关注。
+WebView在现在的项目中使用的频率应该还是非常高的。
+我个人总觉得HTML5是一种趋势。找了一些东西，在此总结。
+本篇最后有一个非常不错 的 Html5Activity 加载类，不想看的可以直接跳下载。</string>
+
+    <string name="detail">和田玉（Nephrite）是软玉的一种（俗称真玉），也是国内高端具有领创品牌的软玉[1]  。和田玉分“狭义”和“广义”两种定义。“狭义”（传统概念）范畴特指新疆和田地区出产的玉石，以和田“子料”为代表闻名于世。“广义“范畴并非特指新疆和田地区出产的玉，”和田玉“逐渐被冠名为一类产品的名称。</string>
+
+
+</resources>
