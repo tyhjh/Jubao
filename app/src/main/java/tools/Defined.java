@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
+import android.support.v7.graphics.Palette;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.view.WindowManager;
@@ -39,29 +40,29 @@ import demand.example.tyhj.jubao.R;
 
 public class Defined {
     //是否有网络
-    public static boolean isIntenet(Context context){
-        ConnectivityManager con=(ConnectivityManager)context.getSystemService(Activity.CONNECTIVITY_SERVICE);
-        boolean wifi=con.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
-        boolean internet=con.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
-        if(wifi||internet){
+    public static boolean isIntenet(Context context) {
+        ConnectivityManager con = (ConnectivityManager) context.getSystemService(Activity.CONNECTIVITY_SERVICE);
+        boolean wifi = con.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
+        boolean internet = con.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
+        if (wifi || internet) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
     //设置控件轮廓
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public static ViewOutlineProvider getOutline(boolean b, final int pading, final int circularBead){
-        if(b) {
-            return  new ViewOutlineProvider() {
+    public static ViewOutlineProvider getOutline(boolean b, final int pading, final int circularBead) {
+        if (b) {
+            return new ViewOutlineProvider() {
                 @Override
                 public void getOutline(View view, Outline outline) {
                     final int margin = Math.min(view.getWidth(), view.getHeight()) / pading;
                     outline.setOval(margin, margin, view.getWidth() - margin, view.getHeight() - margin);
                 }
             };
-        }else {
+        } else {
             return new ViewOutlineProvider() {
                 @Override
                 public void getOutline(View view, Outline outline) {
@@ -72,6 +73,17 @@ public class Defined {
             };
         }
 
+    }
+
+    //获取bitmap颜色
+    public static Palette.Swatch getColor(Bitmap bitmap) {
+        // Palette的部分
+        Palette palette = Palette.generate(bitmap);
+        Palette.Swatch swatche = null;
+        if (palette != null) {
+            swatche = palette.getVibrantSwatch();
+        }
+        return swatche;
     }
 
     //从uri得到path
@@ -89,22 +101,22 @@ public class Defined {
     }
 
     //图片压缩
-    public static void ImgCompress(String filePath,File newFile,int IMAGE_SIZE) {
+    public static void ImgCompress(String filePath, File newFile, int IMAGE_SIZE) {
         //图片质量
-        int imageMg=100;
+        int imageMg = 100;
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filePath, options);
         //规定要压缩图片的分辨率
-        options.inSampleSize = calculateInSampleSize(options,1080,1920);
+        options.inSampleSize = calculateInSampleSize(options, 1080, 1920);
         options.inJustDecodeBounds = false;
-        Bitmap bitmap= BitmapFactory.decodeFile(filePath, options);
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, imageMg, baos);
         //如果文件大于100KB就进行质量压缩，每次压缩比例增加百分之五
-        while (baos.toByteArray().length / 1024 > IMAGE_SIZE&&imageMg>60){
+        while (baos.toByteArray().length / 1024 > IMAGE_SIZE && imageMg > 60) {
             baos.reset();
-            imageMg-=5;
+            imageMg -= 5;
             bitmap.compress(Bitmap.CompressFormat.JPEG, imageMg, baos);
         }
         //然后输出到指定的文件中
@@ -121,21 +133,21 @@ public class Defined {
     }
 
     //图片压缩
-    public static void ImgCompress(String filePath,File newFile,int x,int y,int size) {
-        int imageMg=100;
+    public static void ImgCompress(String filePath, File newFile, int x, int y, int size) {
+        int imageMg = 100;
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filePath, options);
         //规定要压缩图片的分辨率
-        options.inSampleSize = calculateInSampleSize(options,x,y);
+        options.inSampleSize = calculateInSampleSize(options, x, y);
         options.inJustDecodeBounds = false;
-        Bitmap bitmap= BitmapFactory.decodeFile(filePath, options);
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath, options);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, imageMg, baos);
         //如果文件大于100KB就进行质量压缩，每次压缩比例增加百分之五
-        while (baos.toByteArray().length / 1024 > size&&imageMg>50){
+        while (baos.toByteArray().length / 1024 > size && imageMg > 50) {
             baos.reset();
-            imageMg-=5;
+            imageMg -= 5;
             bitmap.compress(Bitmap.CompressFormat.JPEG, imageMg, baos);
         }
         //然后输出到指定的文件中
@@ -158,7 +170,7 @@ public class Defined {
         int inSampleSize = 1;
 
         if (height > reqHeight || width > reqWidth) {
-            final int heightRatio = Math.round((float) height/ (float) reqHeight);
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
             final int widthRatio = Math.round((float) width / (float) reqWidth);
             inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
         }
@@ -197,40 +209,40 @@ public class Defined {
     }
 
     //手机号是否正确
-    public static boolean isMobileNO(String mobiles,Context context) {
+    public static boolean isMobileNO(String mobiles, Context context) {
         Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
         Matcher m = p.matcher(mobiles);
-        boolean is=m.matches();
-        if(!is)
-            Toast.makeText(context,"请输入正确的手机号码",Toast.LENGTH_SHORT).show();
+        boolean is = m.matches();
+        if (!is)
+            Toast.makeText(context, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
         return is;
     }
 
     //邮箱是否正确
-    public static boolean isEmail(String email,Context context) {
+    public static boolean isEmail(String email, Context context) {
         String str = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
         Pattern p = Pattern.compile(str);
         Matcher m = p.matcher(email);
-        boolean is=m.matches();
-        if(!is)
-            Toast.makeText(context,"请输入正确的Email地址",Toast.LENGTH_SHORT).show();
+        boolean is = m.matches();
+        if (!is)
+            Toast.makeText(context, "请输入正确的Email地址", Toast.LENGTH_SHORT).show();
         return is;
     }
 
     //获取屏幕大小
-    public static int getWidth(Context context,boolean is){
+    public static int getWidth(Context context, boolean is) {
         WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         final int width = wm.getDefaultDisplay().getWidth();
         final int height = wm.getDefaultDisplay().getHeight();
-        if(is)
+        if (is)
             return width;
         else
             return height;
     }
 
     //展示图片的设置
-    public static DisplayImageOptions getOption(){
+    public static DisplayImageOptions getOption() {
         return new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)

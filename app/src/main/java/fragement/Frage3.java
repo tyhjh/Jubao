@@ -1,8 +1,10 @@
 package fragement;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -18,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adpter.RecentAuctionAdapter;
+import demand.example.tyhj.jubao.Classes;
+import demand.example.tyhj.jubao.Classes_;
 import demand.example.tyhj.jubao.R;
 import myclass.Auction;
 import tools.Defined;
@@ -45,6 +50,20 @@ public class Frage3 extends Fragment {
 
     @ViewById
     ImageView iv_atTime,iv_nextTime;
+
+    @ViewById
+    CardView crd_atTime;
+
+    @Click(R.id.crd_atTime)
+    void atTime(){
+        startActivity(new Intent(getActivity(), Classes_.class));
+    }
+
+    @Click(R.id.crd_nextTime)
+    void nextTime(){
+        startActivity(new Intent(getActivity(), Classes_.class));
+    }
+
 
     @AfterViews
     void afterView(){

@@ -80,7 +80,7 @@ public class Auction implements Serializable{
     }
 
     public String getStartTime() {
-        return startTime;
+        return "开场时间："+startTime;
     }
 
     public void setStartTime(String startTime) {

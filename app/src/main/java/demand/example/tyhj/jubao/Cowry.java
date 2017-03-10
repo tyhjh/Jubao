@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -20,13 +21,16 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import adpter.PhotoAdapter;
 import fragement.Frage1;
 import fragement.Frage1_;
 import myView.NetworkImageHolderView;
 import myclass.Auction;
+import myclass.ShowPhoto;
 import tools.Defined;
 
 @EActivity(R.layout.activity_cowry)
@@ -35,6 +39,8 @@ public class Cowry extends AppCompatActivity {
     private Auction auction;
 
     private List<String> networkImages;
+
+    private List<ShowPhoto> photos;
 
     @ViewById
     ConvenientBanner banner_cowry;
@@ -69,27 +75,29 @@ public class Cowry extends AppCompatActivity {
 
     @AfterViews
     void afterView(){
-
         initText();
-
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/huakang_black.TTF");
-        tv_suggestName.setTypeface(typeface);
-
         initTab();
+        click();
+        initReclyView();
+    }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            iv_suggestHead.setClipToOutline(true);
-            iv_suggestHead.setOutlineProvider(Defined.getOutline(true,20,0));
+    private void initReclyView() {
+        photos=new ArrayList<ShowPhoto>();
+        for(int i=0;i<Frage1.images.length;i++){
+            photos.add(new ShowPhoto(Frage1.images[i]));
         }
-        ImageLoader.getInstance().displayImage(Frage1.userHeadImage,iv_suggestHead);
-        tv_startTime.setText(auction.getStartTime());
+        PhotoAdapter adpter=new PhotoAdapter(this,photos);
+        cowry_photo.setAdapter(adpter);
+        cowry_photo.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        cowry_photo.setNestedScrollingEnabled(false);
+    }
 
-
+    private void click() {
         activity_cowry.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 if(scrollY<=500){
-                    if(view_bar.getVisibility()==View.VISIBLE)
+                    if(view_bar.getVisibility()== View.VISIBLE)
                         view_bar.setVisibility(View.INVISIBLE);
                 }else {
                     if(view_bar.getVisibility()==View.INVISIBLE)
@@ -98,10 +106,15 @@ public class Cowry extends AppCompatActivity {
                 //Log.e("Cowry","scrollX："+scrollX+"scrollY："+scrollY+"oldScrollX："+oldScrollX+"oldScrollY："+oldScrollY);
             }
         });
-
     }
 
     private void initText() {
+
+        tv_startTime.setText(auction.getStartTime());
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/huakang_black.TTF");
+        tv_suggestName.setTypeface(typeface);
+
         tv_cowryName.setText(auction.getTitle());
         tv_cowryDetail.setText(auction.getCrowryDetails());
         tv_introduce.setText(auction.getAuthorIntroduce());
@@ -116,6 +129,12 @@ public class Cowry extends AppCompatActivity {
         tv_color.setText(auction.getColor());
         tv_theme.setText(auction.getTheme());
         tv_style.setText(auction.getStyle());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            iv_suggestHead.setClipToOutline(true);
+            iv_suggestHead.setOutlineProvider(Defined.getOutline(true,20,0));
+        }
+        ImageLoader.getInstance().displayImage(Frage1.userHeadImage,iv_suggestHead);
     }
 
     //初始化tab图片轮播

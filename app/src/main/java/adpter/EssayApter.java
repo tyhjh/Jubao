@@ -45,7 +45,6 @@ public class EssayApter extends RecyclerView.Adapter<EssayApter.EssayHolder> {
     ObjectAnimator animator, animator2;
     AnimatedVectorDrawable anim;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public EssayApter(List<Essay> essays, Context context) {
         this.essays = essays;
         this.context = context;

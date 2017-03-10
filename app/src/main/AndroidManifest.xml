@@ -33,7 +33,15 @@
         </activity>
         <activity android:name=".Home_" />
         <activity android:name=".ShowEssay_" />
-        <activity android:name=".Cowry_"></activity>
+        <activity android:name=".Cowry_" />
+        <activity android:name=".Classes_" />
+        <activity android:name=".Login_" />
+        <activity android:name=".PersonalSetting_" />
+        <activity android:name=".SignUp_" />
+        <activity android:name=".ResetPwd_" />
+        <activity android:name=".Clause_" />
+        <activity android:name=".OrderForm_" />
+        <activity android:name=".Setting_"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -155,4 +156,15 @@ public class Home extends AppCompatActivity {
     }
 
 
+    //监听返回键
+    private long exitTime = 0;
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis()-exitTime>2000){
+            exitTime = System.currentTimeMillis();
+            Toast.makeText(Home.this,getString(R.string.outapp),Toast.LENGTH_SHORT).show();
+        }else {
+            super.onBackPressed();
+        }
+    }
 }

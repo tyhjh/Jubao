@@ -18,6 +18,7 @@
             app:canLoop="true" />
 
         <View
+            android:id="@+id/view"
             android:background="@color/silver"
             android:layout_width="match_parent"
             android:layout_height="4dp"/>
