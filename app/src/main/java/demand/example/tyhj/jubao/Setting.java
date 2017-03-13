@@ -43,12 +43,12 @@ public class Setting extends AppCompatActivity {
     //建议反馈
     @Click({R.id.ll_suggest,R.id.tv_suggest,R.id.iv_suggest})
     void suggest(){
-
+        startActivity(new Intent(this,Suggest_.class));
     }
     //关于
     @Click({R.id.ll_about,R.id.iv_about,R.id.tv_about})
     void about(){
-
+        startActivity(new Intent(this,About_.class));
     }
 
     // 评价

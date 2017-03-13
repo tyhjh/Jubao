@@ -117,5 +117,11 @@ Copyright © 2014-1015 集特网络 版权所有</string>
     <string name="manage_address">地址管理</string>
     <string name="sava_change">保存修改</string>
     <string name="savaed">已保存</string>
+    <string name="input_suggest">在此输入您的建议或者意见</string>
+    <string name="push">提交</string>
+    <string name="webpage">www.jvbaoji.com</string>
+    <string name="version">聚宝籍1.1</string>
+    <string name="company">Copyright ⓒ 2014-2015 杭州集特网络</string>
+    <string name="declare">All Right Reserved</string>
 
 </resources>

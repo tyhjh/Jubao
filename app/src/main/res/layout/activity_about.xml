@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="demand.example.tyhj.jubao.About">
+
+
+    <View
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <View
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+
+    <TextView
+        android:text="@string/webpage"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:text="@string/version"
+        android:textSize="18sp"
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:textSize="10sp"
+        android:text="@string/company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="10sp"
+        android:text="@string/declare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+
+</LinearLayout>

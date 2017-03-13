@@ -41,7 +41,9 @@
         <activity android:name=".ResetPwd_" />
         <activity android:name=".Clause_" />
         <activity android:name=".OrderForm_" />
-        <activity android:name=".Setting_"></activity>
+        <activity android:name=".Setting_" />
+        <activity android:name=".Suggest_" />
+        <activity android:name=".About_"></activity>
     </application>
 
 </manifest>
