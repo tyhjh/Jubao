@@ -43,7 +43,8 @@
         <activity android:name=".OrderForm_" />
         <activity android:name=".Setting_" />
         <activity android:name=".Suggest_" />
-        <activity android:name=".About_"></activity>
+        <activity android:name=".About_" />
+        <activity android:name=".Msg_"></activity>
     </application>
 
 </manifest>

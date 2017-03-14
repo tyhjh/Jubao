@@ -24,6 +24,8 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import demand.example.tyhj.jubao.Login_;
+import demand.example.tyhj.jubao.Msg;
+import demand.example.tyhj.jubao.Msg_;
 import demand.example.tyhj.jubao.OrderForm_;
 import demand.example.tyhj.jubao.R;
 import demand.example.tyhj.jubao.Setting;
@@ -118,6 +120,10 @@ public class Frage5 extends Fragment {
         startActivity(new Intent(getActivity(), Setting_.class));
     }
 
+    @Click(R.id.ll_msg)
+    void myMsg(){
+        startActivity(new Intent(getActivity(), Msg_.class));
+    }
 
 
 
