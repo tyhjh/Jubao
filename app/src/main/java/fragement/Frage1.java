@@ -2,6 +2,7 @@ package fragement;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.graphics.Palette;
@@ -182,7 +183,11 @@ public class Frage1 extends Fragment {
             @Override
             public void onPageSelected(int position) {
                 if (swatchs[position] != null) {
-                    view.setBackgroundColor(swatchs[position].getRgb());
+                    try {
+                        view.setBackgroundColor(swatchs[position].getRgb());
+                    }catch (Exception e){
+                        view.setBackgroundColor(Color.GRAY);
+                    }
                 }
             }
 

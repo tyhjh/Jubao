@@ -54,10 +54,11 @@
                 android:layout_marginTop="2dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:padding="5dp"
+                android:padding="6dp"
                 android:theme="@style/ButtonTheme" />
 
             <TextView
+                android:textSize="11sp"
                 android:gravity="bottom"
                 android:id="@+id/tv_readedCount"
                 android:layout_width="wrap_content"
@@ -72,11 +73,12 @@
                 android:layout_marginTop="2dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:padding="5dp"
+                android:padding="6dp"
                 android:src="@drawable/icmecollect"
                 android:theme="@style/ButtonTheme" />
 
             <TextView
+                android:textSize="11sp"
                 android:gravity="bottom"
                 android:id="@+id/tv_likesCount"
                 android:layout_width="wrap_content"

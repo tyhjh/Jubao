@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Jubao</string>
+    <string name="app_name">聚宝籍</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -124,5 +124,9 @@ Copyright © 2014-1015 集特网络 版权所有</string>
     <string name="company">Copyright ⓒ 2014-2015 杭州集特网络</string>
     <string name="declare">All Right Reserved</string>
     <string name="mymsg">我的消息</string>
+    <string name="headImage">http://ac-tv2pl6bu.clouddn.com/6qHjxSn5R6PcSDfFulfsKTT57VLU4bnC0eZwIJxm.jpg</string>
+    <string name="url_share">http://www.jvbaoji.com/mobile/download.html</string>
+    <string name="its_signature">聚各式书画成卷，收各样宝器成册，汇各种藏品成集</string>
+    <string name="update_id">101076b053</string>
 
 </resources>

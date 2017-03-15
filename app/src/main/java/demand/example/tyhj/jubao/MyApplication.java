@@ -10,19 +10,23 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.tencent.bugly.Bugly;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.concurrent.TimeUnit;
 
+import cn.sharesdk.framework.ShareSDK;
 import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application
-{   
+{
     @Override
     public void onCreate()
     {
         super.onCreate();
         initImageLoader();
+        ShareSDK.initSDK(this);
+        Bugly.init(getApplicationContext(), getString(R.string.update_id), false);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
 //                .addInterceptor(new LoggerInterceptor("TAG"))
                   .connectTimeout(10000L, TimeUnit.MILLISECONDS)

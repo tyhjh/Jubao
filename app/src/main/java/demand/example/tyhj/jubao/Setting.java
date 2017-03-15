@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tencent.bugly.beta.Beta;
+
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
@@ -60,7 +62,7 @@ public class Setting extends AppCompatActivity {
     //检查更新
     @Click({R.id.ll_update,R.id.iv_update,R.id.tv_update})
     void update(){
-
+        Beta.checkUpgrade(true,false);
     }
 
 }
